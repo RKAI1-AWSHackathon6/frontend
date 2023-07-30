@@ -5,7 +5,7 @@ const Logo = () => {
     return <LogoWrapper>
         <img src={LogoIcon} alt=""/>
         <h1>
-            RKAI 1
+            Crypto FusionX
         </h1>
     </LogoWrapper>
 }
