@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  app:
+    build: .
+    image: rkai1-front-end:latest
+    env_file:
+      - .env
+    ports:
+      - 3000:80

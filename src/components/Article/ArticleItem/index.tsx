@@ -6,6 +6,7 @@ import { actSelectArticle } from "@/redux/action";
 import Ribbon from "@/components/Ribbon";
 import { useState } from "react";
 import CurrencyLabel from "@/components/Currency/CurrencyLabel";
+import { MAX_KEYWORDS_PER_ITEM } from "@/constants/articles";
 
 const ArticleItem = (props: IArticleItemProps) => {
     const {article} = props;
@@ -18,31 +19,30 @@ const ArticleItem = (props: IArticleItemProps) => {
         >
         <div className="main">
             <Ribbon label={article.label} />
-            <div 
-                className="thumbnail"
-                // style={{
-                //     backgroundImage: `url(${article.image})`,
-                // }}
-            >
-                    <img src={article.image} alt={article.image}/>
+            <div className="thumbnail">
+                <img src={article.image} alt={article.image}/>
                 {displaySummary && <div className="summary-wrapper"> 
                     <div className="summary">{article.summary}</div>
                 </div>}
             </div>
             <div className="content">
                 <div className="header">
-                    <span className="currency">
-                        {article.relatedCurrency && <CurrencyLabel currency={article.relatedCurrency}/>}
+                    {article.relatedCurrency && <span className="currency">
+                        <CurrencyLabel currency={article.relatedCurrency}/>
                     </span>
+                    }
                     <span className="time">
                         {article.publishedTime}
                     </span>
                 </div>
                 <span className="title">{article.title}</span>
                 <div className="keywords">
-                    {article.keywords.map((keyword, index) => (
+                    {article.keywords.slice(0, MAX_KEYWORDS_PER_ITEM).map((keyword, index) => (
                         <span key={index}>{keyword}</span>
                     ))}
+                    {article.keywords.length > MAX_KEYWORDS_PER_ITEM &&
+                        <span key={MAX_KEYWORDS_PER_ITEM}>+{article.keywords.length - MAX_KEYWORDS_PER_ITEM} more</span>
+                    }
                 </div>
 
                 <PrimaryButton title="Read more" onClick={() => window.open(article.url)}/>

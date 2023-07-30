@@ -1,6 +1,8 @@
 import { ArticleLabel, IArticle } from "@/redux/interface";
 import { CURRENCY_LIST } from "./coin";
 
+export const MAX_KEYWORDS_PER_ITEM = 10;
+
 export const ARTICLES: IArticle[] = [
 //     {
 //     relatedCurrency: CURRENCY_LIST[0],

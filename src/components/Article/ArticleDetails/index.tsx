@@ -12,7 +12,9 @@ const ArticleDetails = (props: IArticleDetailsProps) => {
     if (article) {
     return <ArticleDetailsWrapper>
         <div>
-            <h1>{article.title}</h1>
+            <a href={article.url} target="_blank" rel="noreferrer">
+                <h1>{article.title}</h1>
+            </a>
             <span className="metadata">
                 <span className="source">{article.source}</span>
                 <span className="delimiter">/</span>
@@ -24,6 +26,11 @@ const ArticleDetails = (props: IArticleDetailsProps) => {
         <TextSection title="Summary">
             <div className="summary">
                 {article.summary}
+            </div>
+        </TextSection>
+        <TextSection title="Comment">
+            <div className="summary">
+                {article.explain}
             </div>
         </TextSection>
 

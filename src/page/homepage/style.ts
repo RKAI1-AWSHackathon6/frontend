@@ -3,11 +3,16 @@ import styled from "styled-components";
 const HomepageWrapper = styled.div`
     width: 100%;
     height: 100%;
-`;
 
-const LeftSection = styled.div`
-    width: 100%;
-    height: 100%;
+    .left {
+        width: 100%;
+        height: 100%;
+    }
+
+    .main {
+        background: var(--color-background-dark);
+        border-radius: 40px 0 0 40px;
+    }
 `;
 
 const MainSection = styled.div`
@@ -16,9 +21,9 @@ const MainSection = styled.div`
     flex-direction: column;
     /* flex-grow: 1; */
     height: 100%;
-    border-radius: 40px 0 0 40px;
+    
     padding: 3.2rem;
-    background: var(--color-background-dark);
+    
 `;
 
 const RightSection = styled.div`
@@ -26,6 +31,8 @@ const RightSection = styled.div`
     height: 100%;
     border-radius: 50px 0 0 50px;
     background: var(--color-background-gray);
+    overflow-y: auto;
+    overflow-x: hidden;
 `;
 
-export {HomepageWrapper, MainSection, LeftSection, RightSection};
+export {HomepageWrapper, MainSection, RightSection};

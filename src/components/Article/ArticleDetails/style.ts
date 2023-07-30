@@ -59,6 +59,8 @@ export const ArticleDetailsWrapper = styled.div`
         background: var(--color-background);
         border-radius: 1rem;
         padding: 1rem;
+        max-height: 20rem;
+        overflow-y: auto;
         color: var(--color-text);
     }
 `;
